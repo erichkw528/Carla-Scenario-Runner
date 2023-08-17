@@ -24,6 +24,14 @@ ros2 service call /scenario_runner/execute_scenario carla_ros_scenario_runner_ty
 ```
 
 
+# FAQ
+
+Q: If you find `RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error`
+A: 
+Simply execute `pkill -9 python`
+https://github.com/carla-simulator/scenario_runner/issues/722
+
+
 ScenarioRunner for CARLA
 ========================
 This repository contains traffic scenario definition and an execution engine
