@@ -2,6 +2,28 @@
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/carla-simulator/scenario_runner.svg)
 [![Build Status](https://travis-ci.com/carla-simulator/scenario_runner.svg?branch=master)](https://travis-ci.com/carla/scenario_runner)
 
+
+
+# ROAR Quick Start
+1. clone this repo
+2. setup path. 
+   1. In your `~/.bashrc`, add path to scenario runner. 
+For example: 
+```
+export SCENARIO_RUNNER_ROOT=/home/michael/Desktop/projects/roar-gokart-ws/src/simulation/simulation/carla_scenario_runner
+```
+3. start carla client via carla-ros-bridge
+`ros2 launch carla_ros_bridge carla_ros_bridge_with_example_ego_vehicle.launch.py`
+
+4. run the scenario runner server. Example: 
+`ros2 launch carla_ros_scenario_runner carla_ros_scenario_runner.launch.py scenario_runner_path:=/home/michael/Desktop/projects/roar-gokart-ws/src/simulation/simulation/carla_scenario_runner`
+
+1. choose a scenario, run it. the scenario should end in `xosc`. Example: 
+```
+ros2 service call /scenario_runner/execute_scenario carla_ros_scenario_runner_types/srv/ExecuteScenario "{ 'scenario': { 'scenario_file': '/home/michael/Desktop/projects/roar-gokart-ws/src/simulation/simulation/carla_scenario_runner/srunner/examples/roar/michael_sample.xosc'}}"
+```
+
+
 ScenarioRunner for CARLA
 ========================
 This repository contains traffic scenario definition and an execution engine
