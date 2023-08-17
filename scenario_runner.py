@@ -314,6 +314,7 @@ class ScenarioRunner(object):
                     for ego_vehicle in ego_vehicles:
                         ego_vehicle_found = False
                         for vehicle in vehicles:
+                            print(f"vehicles: {vehicle.attributes['role_name']} | desired: {ego_vehicle.rolename} ")
                             if vehicle.attributes['role_name'] == ego_vehicle.rolename:
                                 ego_vehicle_found = True
                                 break
@@ -443,6 +444,9 @@ class ScenarioRunner(object):
         if not scenario_configurations:
             print("Configuration for scenario {} cannot be found!".format(self._args.scenario))
             return result
+
+        print(f"Parsing Scenario: {self._args.scenario}")
+        print(f"Parsing configFile: {self._args.configFile}")
 
         # Execute each configuration
         for config in scenario_configurations:
